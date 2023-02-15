@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:one_firebase/UI/auth/login_with_phone_number.dart';
 import 'package:one_firebase/UI/auth/signup_screen.dart';
 import 'package:one_firebase/UI/post/post_screen.dart';
 import 'package:one_firebase/utils/utils.dart';
@@ -110,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
             const SizedBox(
               height: 30,
             ),
-            Row(
+            Column(
               children: [
                 const Text("Don't have an account?"),
                 TextButton(
@@ -120,7 +121,25 @@ class _LoginScreenState extends State<LoginScreen> {
                           MaterialPageRoute(
                               builder: (context) => const SignUpScreen()));
                     },
-                    child: const Text("SignUp"))
+                    child: const Text("SignUp")),
+                SizedBox(
+                  height: 30,
+                ),
+                InkWell(
+                  onTap: (){
+                    Navigator.push(context,MaterialPageRoute(builder:(context) =>LoginWithPhoneNumber()) );
+                  },
+                  child: Container(
+                    height: 50,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                      border: Border.all(color: Colors.black)
+                    ),
+                    child: Center(
+                      child: Text("Login with phone number"),
+                    ),
+                  ),
+                )
               ],
             )
           ],
